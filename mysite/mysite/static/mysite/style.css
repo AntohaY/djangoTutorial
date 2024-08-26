@@ -1,0 +1,21 @@
+.main-view {
+    background-color: turquoise;
+    border-radius: 1rem;
+    margin: auto;
+
+    height: 25rem;
+    width: 25rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-view a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: cornsilk;
+    margin: 3rem;
+}
