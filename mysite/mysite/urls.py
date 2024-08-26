@@ -22,5 +22,6 @@ from mysite.views import MainView
 urlpatterns = [
     path('', MainView.as_view(), name='main'),
     path('polls/', include('polls.urls')),
+    path('books/', include('books.urls')),
     path('admin/', admin.site.urls),
 ]

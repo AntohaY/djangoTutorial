@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ author.first_name }} {{ author.last_name }}</title>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'author/style.css' %}">
+
+</head>
+<body>
+    <h1>{{ author.first_name }} {{ author.last_name }}</h1>
+    <h2>Date of Birth: {{ author.date_of_birth }}</p>
+
+    <h3>Books Written by {{ author.first_name }}:</h3>
+    <ul>
+        {% for book in books %}
+            <li>
+                <span>
+                    {{ book.title }}
+                </span>
+                {% if book.is_long %}
+                    <span> - This is a long book.</span>
+                {% else %}
+                    <span> - This is a short book.</span>
+                {% endif %}
+                <p>
+                    (ISBN: {{ book.isbn }})
+                </p>
+            </li>
+        {% empty %}
+            <li>No books found for this author.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'book_list' %}">Back to Book List</a>
+</body>
+</html>

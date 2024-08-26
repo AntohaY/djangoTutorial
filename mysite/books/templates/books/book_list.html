@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'books/style.css' %}">
+</head>
+<body>
+    <h1>Book List</h1>
+    <ul>
+        {% for book in books %}
+            <li>
+                {{ book.title }} by <a href="{% url 'author_detail' author_id=book.author.id %}">{{ book.author.first_name }} {{ book.author.last_name }}</a>
+
+                {% if book.is_long %}
+                    <span> - This is a long book.</span>
+                {% else %}
+                    <span> - This is a short book.</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
